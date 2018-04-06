@@ -6,7 +6,6 @@ import pytest
 import filecmp
 
 @pytest.fixture()
-@pytest.mark.skip(reason="doesn't work")
 def datadir(request):
     filename = request.module.__file__
     test_dir, _ = os.path.splitext(filename)
@@ -18,6 +17,7 @@ def load_json(datadir, request):
     return datadir, tmp
 
 @pytest.mark.long
+@pytest.mark.skip(reason="doesn't work")
 def test_case(tmpdir, load_json):
 
     datadir, js = load_json
